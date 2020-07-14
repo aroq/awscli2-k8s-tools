@@ -1,3 +1,6 @@
+Version 0.1.1:
+ - Fix github workflow
+
 Version 0.1.0
  - Add dockerfile
  - Initial commit
