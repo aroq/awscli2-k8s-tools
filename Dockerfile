@@ -15,4 +15,18 @@ RUN apk --no-cache add \
         /usr/local/aws-cli/v2/*/dist/awscli/data/ac.index \
         /usr/local/aws-cli/v2/*/dist/awscli/examples
 
+# Install kubectl
+ARG KUBECTL_VERSION=v1.18.0
+RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$KUBECTL_VERSION/bin/linux/amd64/kubectl && \
+    chmod +x ./kubectl && \
+    mv ./kubectl /usr/local/bin/kubectl && \
+    mkdir -p ~/completions && \
+    kubectl completion bash > ~/completions/kubectl.bash && \
+    echo "source ~/completions/kubectl.bash" >> /etc/profile
+
+# Install kpt
+RUN curl -LO https://storage.googleapis.com/kpt-dev/latest/linux_amd64/kpt && \
+    chmod +x ./kpt && \
+    mv ./kpt /usr/local/bin/kpt
+
 ENTRYPOINT ["aws"]
