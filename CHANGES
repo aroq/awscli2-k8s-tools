@@ -1,3 +1,8 @@
+Version 0.1.2:
+ - Add bash
+ -  Add git
+ - Add kubectl & kpt
+
 Version 0.1.1:
  - Fix github workflow
 
