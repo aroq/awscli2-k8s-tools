@@ -31,4 +31,8 @@ RUN curl -LO https://storage.googleapis.com/kpt-dev/latest/linux_amd64/kpt && \
     chmod +x ./kpt && \
     mv ./kpt /usr/local/bin/kpt
 
+# Install kustomize
+RUN curl -s "https://raw.githubusercontent.com/\
+    kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
+
 ENTRYPOINT ["aws"]
