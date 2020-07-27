@@ -35,4 +35,7 @@ RUN curl -LO https://storage.googleapis.com/kpt-dev/latest/linux_amd64/kpt && \
 RUN curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
 RUN mv ./kustomize /usr/local/bin/kustomize
 
+# Install helm
+RUN curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+
 ENTRYPOINT ["aws"]
